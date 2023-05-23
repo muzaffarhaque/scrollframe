@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .box1,.box3{
+            width: 100%;
+            height: 100vh;
+        }
+        .img{
+            width: 100%;
+            position: fixed;
+            object-fit: cover;
+            transform: scale(3);
+            transition:all .4s;
+
+
+        }
+        .box1{
+            position: relative;
+            /* background: url(./images/dare-artworks-2Nfdf8CITSw-unsplash.jpg) center; */
+            background-size: 50% 50%;
+            background-attachment: fixed;
+            overflow: hidden;
+            transition:all .4s;
+        }
+        .box3{
+            background-color: transparent;
+        }
+       
+    </style>
+    <title>scroll Zome</title>
+</head>
+<body>
+    <div class="box1">
+        <img src="./images/dare-artworks-2Nfdf8CITSw-unsplash.jpg"  class="img" id="img" alt="">
+    </div>
+    <div class="box3"></div>
+
+    <script >
+     window.onload = function() {
+  window.scrollTo(0, 0);
+};
+    window.onscroll=function(){
+      
+    console.log("scrlling",window.pageYOffset,window.scrollY)
+    let img=document.getElementById("img");
+   let scroll=Math.floor(window.scrollY)
+   var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    if( 100>=scrollPosition<=200){
+        img.style.transform="scale(2)";
+        img.style.transition="all .7s";
+        console.log("fist")
+    } if(scrollPosition>=410){
+        img.style.transform="scale(1)";
+        img.style.transition="all .8s";
+        console.log("sec")
+    }
+} </script>
+</body>
+</html>
