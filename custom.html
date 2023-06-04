@@ -4,14 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Final</title>
+    <title>scrollAnimation</title>
     <style>
       * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
       }
-     
+      .firstSection {
+        width: 100%;
+        height:100vh;
+        background-color: rgb(207, 207, 113);
+      }
+      .thirdSection {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(157, 227, 238);
+      }
       .animate-box {
         width: 100%;
         background-color: rgb(178, 233, 167);
@@ -28,13 +37,13 @@
     </style>
   </head>
   <body>
-    
+    <div class="firstSection"></div>
 
     <div class="animate-box">
       <img src="./animation6/0000.png" id="img" class="img" alt="" />
     </div>
 
-  
+    <div class="thirdSection"></div>
 
     <script>
       let second = document.querySelector(".animate-box");

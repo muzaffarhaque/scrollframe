@@ -4,15 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Final</title>
+    <title>scrollAnimation</title>
     <style>
       * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
       }
-     
-      .animate-box {
+      .firstSection {
+        width: 100%;
+        height: clamp(700px, 100vh, 1080px);
+        background-color: rgb(207, 207, 113);
+      }
+      .thirdSection {
+        width: 100%;
+        height: clamp(700px, 100vh, 1080px);
+        background-color: rgb(157, 227, 238);
+      }
+      .seconSection {
         width: 100%;
         background-color: rgb(178, 233, 167);
         position: relative;
@@ -24,52 +33,65 @@
         left: 0;
         position: absolute;
       }
-    
     </style>
   </head>
   <body>
-    
-
-    <div class="animate-box">
+    <div class="firstSection"></div>
+    <!-- <div class="firstSection"></div> -->
+    <div class="seconSection">
       <img src="./animation6/0000.png" id="img" class="img" alt="" />
     </div>
-
-  
+    <div class="thirdSection"></div>
 
     <script>
-      let second = document.querySelector(".animate-box");
+      //  let imgH=img.offsetHeight;
       let img = document.getElementById("img");
+    //   let first = document.querySelector(".firstSection");
+      let second = document.querySelector(".seconSection");
       second.style.height = img.offsetHeight + 1100 + "px";
+      // if(window.innerHeight)
       document.addEventListener("scroll", function () {
         var scrollPosition =Math.floor(window.pageYOffset).toString().padStart(4, "0") ||Math.floor(document.documentElement.scrollTop).toString().padStart(4, "0");
+        // let innerHeight = Math.floor(window.innerHeight).toString().padStart(4, "0");
+        // let heroHeight = first.offsetHeight;
+        let imgHeight = img.offsetHeight;
         let topEnd = Math.floor((scrollPosition - second.offsetTop) / 10).toString().padStart(4, "0");
         let bottomEnd=second.offsetTop + 1100 
         console.clear();
         console.log("Inner height(innerHeight)", window.innerHeight);
         console.log("scrollPosition(scrollPosition)", scrollPosition);
+        // console.log("First Dive Height(heroHeight)", heroHeight);
+        console.log("Image Height(imgHeight)", imgHeight);
         console.log("secon ditanc from top", second.offsetTop)
         console.log("InnerHeight - Current scroll(topEnd)",topEnd);
+        // console.log("hero + second section height",second.offsetTop + img.offsetHeight + 1100 - window.innerHeight);
         console.log("hero + second section height(bottomEnd)",bottomEnd);
         
        if(topEnd>=0 && topEnd<=110){
             img.style.position="fixed";
             img.style.top="0";
-            if(window.innerWidth<=900){
-                img.src=`./animation7/${topEnd}.png`;
-            }else{
-                img.src=`./animation6/${topEnd}.png`;
-            }
        }
        else{
         img.style.position="absolute";
        }
        if(scrollPosition >=bottomEnd){
-            img.style.position="absolute";
+        img.style.position="absolute";
             img.style.bottom="0";
             img.style.top="unset";
        }
 
-   
+        // if(calculatedvalue>0072){
+        //     img.style.position="absolute";
+        //     img.style.bottom="0";
+        //     img.style.top="unset";
+        //     // img.style.top="";
+        // }
+        // if(calculatedvalue<0000){
+        //     img.style.position="absolute";
+        //     img.style.bottom="unset";
+        //     img.style.top="0";
+        //     // img.style.top="";
+        // }
       });
     </script>
   </body>
